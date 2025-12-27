@@ -1,3 +1,5 @@
+import os
+import uvicorn
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -38,5 +40,6 @@ async def healthz():
             is_connected = False
     
     return {"status": "ok", "db": "connected" if is_connected else "disconnected"}
-# Force reload for env update
-# Trigger reload for env update
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
