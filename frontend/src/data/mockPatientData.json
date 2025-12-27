@@ -1,0 +1,86 @@
+[
+  {
+    "demographics": {
+      "id": "patient-001",
+      "name": "Alice Smith",
+      "dob": "1975-03-15",
+      "age": 49,
+      "gender": "Female",
+      "heightCm": 165,
+      "weightKg": 70,
+      "bmi": 25.7
+    },
+    "medicalHistory": {
+      "conditions": ["Hypertension", "Type 2 Diabetes"],
+      "surgeries": ["Appendectomy (2000)"],
+      "allergies": ["Penicillin"],
+      "medications": ["Lisinopril", "Metformin"],
+      "smokingStatus": "Former",
+      "alcoholUse": "Social",
+      "drugUse": "None"
+    },
+    "airwayExam": {
+      "mallampatiScore": "II",
+      "thyromentalDistanceCm": 6.5,
+      "mouthOpeningCm": 4.0,
+      "neckMobility": "Normal"
+    },
+    "clinicianNotes": "Patient well-controlled on current medications. No recent hospitalizations. Scheduled for wisdom tooth extraction."
+  },
+  {
+    "demographics": {
+      "id": "patient-002",
+      "name": "Bob Johnson",
+      "dob": "1960-11-22",
+      "age": 63,
+      "gender": "Male",
+      "heightCm": 178,
+      "weightKg": 95,
+      "bmi": 29.9
+    },
+    "medicalHistory": {
+      "conditions": ["Obstructive Sleep Apnea", "Coronary Artery Disease"],
+      "surgeries": ["CABG (2010)", "Tonsillectomy (Childhood)"],
+      "allergies": ["None"],
+      "medications": ["Aspirin", "Atorvastatin", "CPAP at night"],
+      "smokingStatus": "Former",
+      "alcoholUse": "None",
+      "drugUse": "None"
+    },
+    "airwayExam": {
+      "mallampatiScore": "III",
+      "thyromentalDistanceCm": 5.5,
+      "mouthOpeningCm": 3.5,
+      "neckMobility": "Limited"
+    },
+    "clinicianNotes": "Known difficult airway. Requires careful pre-op assessment and potentially fiberoptic intubation. OSA managed with CPAP."
+  },
+  {
+    "demographics": {
+      "id": "patient-003",
+      "name": "Carol White",
+      "dob": "1998-07-01",
+      "age": 26,
+      "gender": "Female",
+      "heightCm": 160,
+      "weightKg": 55,
+      "bmi": 21.5
+    },
+    "medicalHistory": {
+      "conditions": ["Asthma"],
+      "surgeries": [],
+      "allergies": ["Dust mites"],
+      "medications": ["Albuterol (PRN)"],
+      "smokingStatus": "Never",
+      "alcoholUse": "Social",
+      "drugUse": "None"
+    },
+    "airwayExam": {
+      "mallampatiScore": "I",
+      "thyromentalDistanceCm": 7.0,
+      "mouthOpeningCm": 5.0,
+      "neckMobility": "Normal"
+    },
+    "clinicianNotes": "Healthy young patient. Asthma well-controlled. No significant risk factors."
+  }
+]
