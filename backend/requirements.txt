@@ -1,6 +1,7 @@
 fastapi
 uvicorn[standard]
 motor
+certifi
 pydantic[email]
 pydantic-settings
 python-multipart
