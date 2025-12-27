@@ -9,7 +9,14 @@ from routers import auth, patients
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    db.connect()
+    try:
+        db.connect()
+        # Force a connection check on startup
+        if db.client:
+            await db.client.admin.command('ping')
+            print("Successfully connected to MongoDB!")
+    except Exception as e:
+        print(f"Startup connection failed: {e}")
     yield
     db.close()
 

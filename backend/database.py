@@ -9,6 +9,7 @@ class Database:
     def connect(self):
         self.client = AsyncIOMotorClient(
             settings.MONGODB_URI,
+            tls=True,
             tlsCAFile=certifi.where(),
             server_api=ServerApi('1'),
             uuidRepresentation='standard'
