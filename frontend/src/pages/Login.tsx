@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { API_URL } from "@/config";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -41,7 +42,7 @@ const Login = () => {
       formData.append('username', values.email);
       formData.append('password', values.password);
 
-      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1"}/auth/login`, {
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
