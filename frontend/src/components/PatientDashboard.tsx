@@ -96,7 +96,7 @@ const PatientDashboard: React.FC = () => {
     if (!token) return;
 
     try {
-      const response = await fetch("http://localhost:8000/api/v1/patients/", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1"}/patients/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -249,8 +249,8 @@ const PatientDashboard: React.FC = () => {
         try {
             const isNew = patientData.demographics.id.startsWith("new-patient-");
             const url = isNew
-                ? "http://localhost:8000/api/v1/patients/"
-                : `http://localhost:8000/api/v1/patients/${patientData.demographics.id}`;
+                ? `${import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1"}/patients/`
+                : `${import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1"}/patients/${patientData.demographics.id}`;
             const method = isNew ? "POST" : "PUT";
 
             // Prepare payload to match backend expectation (id in demographics might be ignored by backend but useful for us)

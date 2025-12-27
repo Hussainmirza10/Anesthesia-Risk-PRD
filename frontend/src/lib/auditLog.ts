@@ -6,7 +6,7 @@ export const fetchAuditLogs = async (patientId: string): Promise<AuditLogEntry[]
   if (!token || !patientId || patientId.startsWith("new-patient-")) return [];
 
   try {
-    const response = await fetch(`http://localhost:8000/api/v1/patients/${patientId}/audit-logs`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1"}/patients/${patientId}/audit-logs`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     if (!response.ok) {
@@ -26,7 +26,7 @@ export const createAuditLogEntry = async (patientId: string, action: string, det
     if (!token || !patientId || patientId.startsWith("new-patient-")) return null;
 
     try {
-        const response = await fetch(`http://localhost:8000/api/v1/patients/${patientId}/audit-logs`, {
+        const response = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1"}/patients/${patientId}/audit-logs`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
