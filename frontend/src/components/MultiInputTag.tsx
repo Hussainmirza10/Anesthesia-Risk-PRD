@@ -46,6 +46,7 @@ const MultiInputTag: React.FC<MultiInputTagProps> = ({
           <Badge key={tag} variant="secondary" className="flex items-center gap-1 pr-1">
             {tag}
             <Button
+              type="button"
               variant="ghost"
               size="icon"
               className="h-4 w-4 p-0 text-muted-foreground hover:text-foreground"
@@ -65,7 +66,7 @@ const MultiInputTag: React.FC<MultiInputTagProps> = ({
           placeholder={placeholder}
           className="flex-grow"
         />
-        <Button onClick={handleAddTag}>Add</Button>
+        <Button type="button" onClick={handleAddTag}>Add</Button>
       </div>
     </div>
   );
