@@ -5,6 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { GoogleLogin } from "@react-oauth/google";
+import { Separator } from "@/components/ui/separator";
 import {
   Form,
   FormControl,
@@ -72,6 +74,40 @@ const Login = () => {
     }
   };
 
+  const handleGoogleSuccess = async (credentialResponse: any) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(`${API_URL}/auth/google`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ credential: credentialResponse.credential }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Google login failed");
+      }
+
+      const data = await response.json();
+      localStorage.setItem("token", data.access_token);
+      toast({
+        title: "Success",
+        description: "Logged in with Google successfully",
+      });
+      navigate("/");
+    } catch (error) {
+      console.error("Google Login Error:", error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to login with Google",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
       <Card className="w-[400px]">
@@ -113,6 +149,35 @@ const Login = () => {
               </Button>
             </form>
           </Form>
+
+          <div className="relative my-4">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-background px-2 text-muted-foreground">
+                Or continue with
+              </span>
+            </div>
+          </div>
+
+          <div className="flex justify-center w-full">
+            <GoogleLogin
+              onSuccess={handleGoogleSuccess}
+              onError={() => {
+                toast({
+                  variant: "destructive",
+                  title: "Error",
+                  description: "Google Login Failed",
+                });
+              }}
+              text="continue_with"
+              useOneTap
+              theme="outline"
+              size="large"
+              width="100%"
+            />
+          </div>
         </CardContent>
       </Card>
     </div>

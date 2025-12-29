@@ -8,3 +8,5 @@ python-multipart
 python-jose[cryptography]
 dnspython
 passlib[argon2]
+google-auth
+requests

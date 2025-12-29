@@ -32,8 +32,6 @@ import PatientSelector from "./PatientSelector";
 import { toast } from "sonner";
 import { Upload } from "lucide-react";
 
-const LOCAL_STORAGE_KEY = "anesthesia_risk_patient_data";
-
 // Blank patient data for starting a new assessment
 const BLANK_PATIENT_DATA: PatientData = {
   demographics: {
@@ -133,7 +131,6 @@ const PatientDashboard: React.FC = () => {
     setPatientData(processedPatientData);
     setRiskScores(calculatedRiskScores);
     setRecommendations(calculatedRecommendations);
-    // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(processedPatientData)); // Disabled local storage
     // Auto-logging "Data Processed" removed to avoid noise and async complexity here.
     // Specific handlers will log actions.
   }, []);
